@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\workspace-eclipse\workspace\blogPessoal"/>
+			<item value="C:\workspace-eclipse\workspace\hello"/>
 			<item value="C:\Users\gerso\Desktop\hello\hello"/>
 			<item value="C:\Users\gerso\Desktop\hello"/>
 		</list>
