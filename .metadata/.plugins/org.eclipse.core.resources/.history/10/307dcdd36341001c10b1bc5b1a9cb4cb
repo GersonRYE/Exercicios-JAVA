@@ -1,0 +1,40 @@
+package Exercicios;
+
+import java.util.Random;
+
+public class Exercicio2 {
+	public static void main(String[] args) {
+		Random aleatorio = new Random();
+		int n1 = aleatorio.nextInt(10) + 1;
+		int n2 = aleatorio.nextInt(10) + 1;
+		int n3 = aleatorio.nextInt(10) + 1;
+		int t = 0;
+		
+		
+		System.out.println("Número gerado primeiro " + n1);
+		System.out.println("Número gerado segundo " + n2);
+		System.out.println("Número gerado terceiro " + n3);
+		
+		
+		do {
+			if(n1 > n3) {
+				t = n1;
+				n1 = n3;
+				n3 = t;
+			}
+			if(n1 > n2) {
+				t = n2;
+				n1 = n2;
+				n2 = t;
+			}
+			if(n2 > n3) {
+				t = n3;
+				n2 = n3;
+				n3 = t;
+			}
+			
+		
+		while(n1 > n3 || n2 > n3){
+			System.out.println(n1 + ", " + n2 + "," + n3);
+		}
+		}}}		

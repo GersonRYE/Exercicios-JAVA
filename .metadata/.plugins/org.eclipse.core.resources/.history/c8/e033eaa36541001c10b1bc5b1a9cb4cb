@@ -1,0 +1,15 @@
+package Exercicios;
+
+import java.util.Random;
+
+public class Exercicio2 {
+	public static void main(String[] args) {
+		Random aleatorio = new Random(100);
+		
+		int v1 = aleatorio.nextInt();
+		int v2 = aleatorio.nextInt();
+		int v3 = aleatorio.nextInt();
+		
+		if(v1 > v2 && v1 > v3) {
+			System.out.println(v1);
+		}

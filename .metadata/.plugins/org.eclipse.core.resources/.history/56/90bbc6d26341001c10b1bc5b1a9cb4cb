@@ -1,0 +1,30 @@
+package Exercicios;
+
+import java.util.Random;
+
+public class Exercicio2 {
+	public static void main(String[] args) {
+		Random aleatorio = new Random();
+		int valor1 = aleatorio.nextInt(10) + 1;
+		int valor2 = aleatorio.nextInt(10) + 1;
+		int valor3 = aleatorio.nextInt(10) + 1;
+		
+		int crescente = 0, soma = 0;
+		System.out.println("Número gerado primeiro " + valor1);
+		System.out.println("Número gerado segundo " + valor2);
+		System.out.println("Número gerado terceiro " + valor3);
+		
+		
+		do {
+			crescente++;
+			soma += crescente;
+			se()
+			
+		}
+			
+		}
+		while(valor < 3){
+			System.out.println(", ");
+		}
+
+}

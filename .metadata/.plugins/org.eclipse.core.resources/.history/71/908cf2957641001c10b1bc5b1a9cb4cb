@@ -1,0 +1,28 @@
+package Exercicios;
+
+import java.util.Random;
+
+public class Exercicio4 {
+	public static void main(String[] args) {
+		Random qualquer = new Random();
+
+		int v = qualquer.nextInt(11) - 5;
+		System.out.println(v);
+
+		if (v % 2 == 0) {
+			System.out.println("Este número é PAR!");
+			if (v >= 0) {
+				System.out.println("É um número positivo");
+				v = (int) Math.sqrt(v);
+				System.out.println("A raiz quadrada deste número é: " + v);
+			}
+		} else {
+			System.out.println("Este número é IMPAR!");
+			System.out.println("É um número negativo");
+			System.out.println("O número elevado ao quadrado é: " + v);
+			v = (int) Math.pow(v, 2);
+
+		}
+
+	}
+}

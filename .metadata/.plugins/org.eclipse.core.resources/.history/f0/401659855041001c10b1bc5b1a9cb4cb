@@ -1,0 +1,10 @@
+package br.com.generation.condition;
+
+public class LaçoCondicional {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

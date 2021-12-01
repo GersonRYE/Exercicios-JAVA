@@ -1,0 +1,22 @@
+package Exercicios;
+
+import java.util.Random;
+
+public class Exercicio2 {
+	public static void main(String[] args) {
+		Random aleatorio = new Random(100);
+
+		int v1 = aleatorio.nextInt();
+		System.out.println(v1);
+		
+		int v2 = aleatorio.nextInt();
+		System.out.println(v2);
+		
+		int v3 = aleatorio.nextInt();
+		System.out.println(v3);
+
+		
+		
+		
+	}
+}

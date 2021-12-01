@@ -1,0 +1,12 @@
+package Exercicios;
+
+import java.util.Random;
+
+public class Exercicio4 {
+public static void main(String[] args) {
+	Random qualquer = new Random();
+	
+	int v = (qualquer.nextInt(20) - 9);
+	System.out.println(v);
+}
+}

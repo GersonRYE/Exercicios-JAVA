@@ -1,0 +1,22 @@
+package ProgramaçãoSequencial;
+
+import java.util.Scanner;
+
+public class Exercicio8 {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		
+		double custoCarro, porcentDistr = 0.28, porcentImp = 0.45, total1, total2, total3;
+		
+		System.out.println("Custo do carro");
+		custoCarro = leia.nextDouble();
+		
+		total1 = custoCarro * porcentDistr;
+		total2 = custoCarro * porcentImp;
+		total3 = custoCarro + total1 + total2;
+		
+		System.out.println("Custo para o consumidor será de R$ " + total3);
+		leia.close();
+	}
+
+}

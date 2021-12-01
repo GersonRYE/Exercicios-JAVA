@@ -1,0 +1,27 @@
+package ProgramaçãoSequencial;
+
+import java.util.Scanner;
+
+public class Exercicio5 {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		
+		double nota1, nota2, nota3, total;
+		
+		System.out.println("Escreva sua primeira nota: ");
+		nota1 = leia.nextDouble();
+		
+		System.out.println("Escreva sua segunda nota: ");
+		nota2 = leia.nextDouble();
+		
+		System.out.println("Escreva a terceira nota: ");
+		nota3 = leia.nextDouble();
+		
+		total = (nota1 + nota2 + nota3) / 3;
+		
+		System.out.println("A sua idade é " + total);
+		
+		leia.close();
+	}
+
+}

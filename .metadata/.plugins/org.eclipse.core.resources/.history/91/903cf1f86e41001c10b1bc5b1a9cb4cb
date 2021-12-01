@@ -1,0 +1,27 @@
+package Exercicios;
+
+import java.util.Random;
+
+
+public class Exercicio4 {
+	public static void main(String[] args) {
+		Random qualquer = new Random();
+
+		int v = qualquer.nextInt(7) - 3;
+		System.out.println(v);
+		
+		if(v % 2 == 0) {
+			System.out.println("Este número é PAR!");
+			
+			v = (int) Math.sqrt(v);
+			System.out.println("A raiz quadrada é: " + v);
+		}
+		else {
+			System.out.println("Este número é IMPAR!");
+			
+		 v = (int) Math.pow(v, 2);
+		 System.out.println("O valor elevado ao quadrado é: " + v);
+		}
+
+	}
+}
