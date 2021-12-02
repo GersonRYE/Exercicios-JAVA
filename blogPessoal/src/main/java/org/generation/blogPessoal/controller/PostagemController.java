@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/postagens")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostagemController {
 
 	@Autowired
@@ -48,9 +49,11 @@ public class PostagemController {
 	public ResponseEntity<Postagem> put(@RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
-	
-	
 
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable long id) {
+		repository.deleteById(id);
+	}
 }
 
 /*
@@ -150,10 +153,32 @@ public class PostagemController {
  */
 
 /*
+ * @PutMapping public ResponseEntity<Postagem> put(@RequestBody Postagem
+ * postagem) { return
+ * ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem)); }
+ * 
  * @PutMapping -ele vai retornar um objeto do tipo responseEntity e dentro dele
  * vai ter um recurso do tipo postagem, em seguida vai receber como parametro
  * viaBody (@RequestBody) um objeto do tipo postagem, e nós vamos devolver um
  * responseEntity com status de OK e dentro do corpo da requisição (ou body) nos
- * vamos passar o retorno desse metodo save e passar o postagem
+ * vamos passar o retorno desse metodo save e passar a postagem
+ * 
+ */
+
+/*
+ * @DeleteMapping("/{id}") public void delete (@PathVariable long id) {
+ * repository.deleteById(id); }
+ * 
+ * @deleteMapping parecido com o @GetMapping = então é necessario escrever um
+ * parametro, pois precisamos qual recurso devemos deletar , para delet sera
+ * publico , o tipo sera void ou seja não vai retornar nada, nome do metodo
+ * delete() e dentro do parenteses colocaremos os parametros @pathVariable que
+ * pega o valor inserido no @deleteMapping declarando o dado do tipo long e nome
+ * seria id conforme como esta no model, dentro da chave (não ira ter return por
+ * ser uma void) , vamos chamar o repository e o metodo deleteById(e dentro do
+ * pararenteses o id)
+ * 
+ * {id} = as chaves podemos chamar de interpolação ou template literal
+ * 
  * 
  */

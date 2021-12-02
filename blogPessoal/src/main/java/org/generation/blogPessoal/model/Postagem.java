@@ -33,7 +33,10 @@ public class Postagem {
 	@NotNull
 	@Size(min = 10, max = 500, message = "O atributo texto deve conter no minimo 10 caracteres") // determinando a qtd de caracteres o minimo e o maximo
 	private String texto;
-
+	
+	//@UpdateTimestamp
+	//private LocalDate data;
+	
 	@Temporal(TemporalType.TIMESTAMP) // indica que estamos trabalhando com o tempo para o atributo abaixo
 	private Date date = new java.sql.Date(System.currentTimeMillis()); // este comando serve para quando o usuario
 																		// digitar um dado ele mostra o horario da
