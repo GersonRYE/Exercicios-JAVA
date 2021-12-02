@@ -59,4 +59,7 @@ public interface PostagemRepository extends JpaRepository<Postagem, Long> {
  * declarado com os dados que contem dentro dele e sem levar em consideração
  * maiusculo e minusculo
  * 
+ * .ok() - utilizamos dentro do parenteses um metodos criado dentro do repository
+ * 
+ * .ok() dentro dos parenteses o que receberemos dentro da bary ou dentro do corpo
  */

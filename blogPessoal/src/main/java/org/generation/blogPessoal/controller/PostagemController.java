@@ -5,9 +5,14 @@ import java.util.List;
 import org.generation.blogPessoal.model.Postagem;
 import org.generation.blogPessoal.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +28,28 @@ public class PostagemController {
 	public ResponseEntity<List<Postagem>> GetAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Postagem> GetById(@PathVariable long id) {
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	}
+
+	@GetMapping("/titulo/{titulo}")
+	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
+	}
+
+	@PostMapping
+	public ResponseEntity<Postagem> post(@RequestBody Postagem postagem) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+	}
+
+	@PutMapping
+	public ResponseEntity<Postagem> put(@RequestBody Postagem postagem) {
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
+	}
+	
+	
 
 }
 
@@ -60,7 +87,7 @@ public class PostagemController {
  * do tipo postagem>> o nome do metodo ser GetAll (não receberemos nada como
  * parametro) {
  * 
- * e no retorno desse metodo receberemos umj objeto do tipo ResponseEntity
+ * e no retorno desse metodo receberemos um objeto do tipo ResponseEntity
  * passando .ok que seria nossa resposta http(e dentro da bary nos vamos fazer a
  * requisição de todas as postagens, vamos chamar o 'repository'. e dentro dele
  * temos o metodo findAll ()); }
@@ -69,4 +96,64 @@ public class PostagemController {
  * alguem que consuma essa API, atraves da URI ("/postagens") se o metodo dessa
  * requisição for um metodo GET ele dispara o metodo declarado
  * 
- * */
+ */
+
+/*
+ * @GetMapping ("/{id}") -um novo tipo de busca como resposta pelo id, o usuario
+ * vai escrever um parametro assim sendo uma requisição pelo id
+ * 
+ * 
+ * public ResponseEntity<Postagem> GetById(@PathVariable long id) { return
+ * repository.findById(id) .map(resp -> ResponseEntity.ok(resp))
+ * .orElse(ResponseEntity.notFound().build());
+ * 
+ * @PathVariable - ela ajuda o metodo responseEntity<Postagem> a capturar o
+ * valor indicado pelo @GetMatpping("/{id}") que seria a URI
+ * 
+ * return repository.finbyid pode retornar tanto umobjeto do tipo postagem com
+ * um ok e um objeto dentro do corpo de requisição, ou um NOTFound caso o objeto
+ * não exista ou caso exista algum erro na requisição
+ */
+
+/*
+ * @GetMapping("/titulo/{titulo}") public ResponseEntity<List<Postagem>>
+ * GetByTitulo(@PathVariable String titulo){ return
+ * ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
+ * 
+ * @getMapping - estamos utilizando um subcaminho para não dar conflito com o
+ * outro end-pont declarado que no caso foi o {id}
+ * 
+ * findAllByTituloContainingIgnoreCase(titulo) - busque tudo que estiver dentro
+ * de titulo mesmo se for letra maiuscula ou minuscula *
+ */
+
+/*
+ * @PostMapping public ResponseEntity<Postagem> post (@RequestBody Postagem
+ * postagem) { return
+ * ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+ * 
+ * @ResquestBody - esta anotação consegue pegar o que veio no corpo da
+ * requisição (Objeto Postagem)
+ * 
+ * (Postagem postagem) - o primeiro parametro seria um objeto do tipo Postagem,
+ * e o segundo é o nome dele postagem
+ * 
+ * Postagem - é um objeto que contem varios atributos
+ * 
+ * 
+ * responseEntity = não sera do tipo .ok que seria o 200, mas sim o 201 rated
+ * para fazer isso escreva .status(HttpStatus.CREATED) para salvar na base de
+ * dados (no body) faremos .body(chamaremos o repository chamandop o metodo
+ * .save(chamando a entidade postagem que seria o que foi recebido pelo nosso
+ * clint e passar como parametro desse metodo save )) , então criamos o nosso
+ * end-point de postagem
+ */
+
+/*
+ * @PutMapping -ele vai retornar um objeto do tipo responseEntity e dentro dele
+ * vai ter um recurso do tipo postagem, em seguida vai receber como parametro
+ * viaBody (@RequestBody) um objeto do tipo postagem, e nós vamos devolver um
+ * responseEntity com status de OK e dentro do corpo da requisição (ou body) nos
+ * vamos passar o retorno desse metodo save e passar o postagem
+ * 
+ */
