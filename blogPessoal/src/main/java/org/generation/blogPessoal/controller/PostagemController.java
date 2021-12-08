@@ -2,6 +2,8 @@ package org.generation.blogPessoal.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.blogPessoal.model.Postagem;
 import org.generation.blogPessoal.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostagemController {
 
-	@Autowired
+	@Autowired 
 	private PostagemRepository repository;
 
 	@GetMapping
@@ -34,25 +36,31 @@ public class PostagemController {
 	public ResponseEntity<Postagem> GetById(@PathVariable long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
-
+	//digitando esse caminho no local host e buscando uma palavra especifica dentro do atributo
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
-
+	
+	//adiciona uma id com dados na tabela
 	@PostMapping
-	public ResponseEntity<Postagem> post(@RequestBody Postagem postagem) {
+	public ResponseEntity<Postagem> post(@Valid @RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
-
+	
+	//atualiza conteudo de algum atributo de uma id dentro da tabela
 	@PutMapping
-	public ResponseEntity<Postagem> put(@RequestBody Postagem postagem) {
+	public ResponseEntity<Postagem> put(@Valid @RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable long id) {
-		repository.deleteById(id);
+	public ResponseEntity<?> repository (@PathVariable long id){
+		return repository.findById(id).map(resp -> {
+			repository.deleteById(id);
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		}).orElse(ResponseEntity.notFound().build());
+		
 	}
 }
 

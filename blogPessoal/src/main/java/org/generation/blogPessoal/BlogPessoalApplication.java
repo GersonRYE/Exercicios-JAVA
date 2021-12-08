@@ -12,5 +12,5 @@ public class BlogPessoalApplication {
 
 }
 
-
+//cliente = postman -> json -> servidor(api) 
 // @crossOrigin(origins = "*", allowedHeaders = "*")

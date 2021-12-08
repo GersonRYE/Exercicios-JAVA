@@ -1,6 +1,0 @@
-spring.jpa.hibernate.ddl-auto=update /*sempre quando a aplicação for iniciada o jpa ele vai uma varredura dentro do banco de dados  ou seja o banco de dados que ja foi estabelecido uma conexão, ele vai fazer uma comparação, o banco de dados esta igual ao API caso sim não faz nada nada, caso não ele atualiza o banco de dados como um espelho fiel da forma que nossa API espera  */
-spring.datasource.url=jdbc:mysql://localhost/blog_pessoal?createDatabaseIfNotExist=true&serverTimezone=UTC&useSSl=false /*o caminho que esta alocado no caminho de dados*/
-spring.datasource.username=root /*nome do usuario que vai acessar o banco de dados*/
-spring.datasource.password=root/ /*senha da base de dados*/
-spring.jpa.show-sql=true /*cada alteração que a nossa aPI fizer dentro da base de dados no  console, vai aparecer o sql ou seja qual o comando,  qual a query que a nossa API esta executando */
-

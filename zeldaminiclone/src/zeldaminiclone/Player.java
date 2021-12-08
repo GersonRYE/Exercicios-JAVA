@@ -23,22 +23,25 @@ public class Player extends Rectangle {
 	
 	// neste metodo fica a logica 
 	public void tick() {
-		if(right) {
+		if(right && World.isFree(x+spd, y)) {
 			x+=spd;
-		}else if(left) {
+		}else if(left && World.isFree(x-spd, y)) {
 			x-=spd;
 		}
 		
-		if(up) {
+		if(up && World.isFree(x, y-spd)) {
 			y-=spd;
-		}else if(down) {
+		}else if(down && World.isFree(x, y+spd)) {
 			y+=spd;
 		}
 	}
 	
 	//metodo dos graficos
 	public void render(Graphics g) {
-		g.setColor(Color.blue);
-		g.fillRect(x, y, width, height);
+		//g.setColor(Color.blue);
+		//g.fillRect(x, y, width, height);
+		//renderizando uma imagem nas posições x e y , e tamanho 32 x 32
+		g.drawImage(SpriteSheet.player_front, x, y, 32,32, null);
+		
 	}
 }

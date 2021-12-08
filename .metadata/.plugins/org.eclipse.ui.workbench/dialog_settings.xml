@@ -20,7 +20,7 @@
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 		<list key="orderedElements">
-			<item value="org.eclipse.egit.ui.command.shareProject(org.eclipse.egit.ui.command.projectNameParameter=Atividade 12 Introdução a JAVA)"/>
+			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
 		</list>
 		<list key="orderedProviders">
 			<item value="org.eclipse.ui.commands"/>
@@ -29,7 +29,7 @@
 			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="atividade"/>
+			<item value="ggas"/>
 		</list>
 	</section>
 </section>

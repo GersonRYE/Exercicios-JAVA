@@ -18,14 +18,20 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	public static int WIDTH = 480, HEIGHT = 480;
 
 	public Player player;
+	
+	//estou instanciando o metodo World
+	public World world;
 
 	// criando uma nova dimensão para a janelas
 	public Game() {
 		this.addKeyListener(this);
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		new SpriteSheet();
 
 		// iniciando o player na posição 0,0
-		player = new Player(0, 0);
+		player = new Player(32, 32);
+		//responsavel por renderizar o mundo do jogo
+		world = new World();
 	}
 
 	// metodo responsavel pela logica do jogo
@@ -44,12 +50,14 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		Graphics g = bs.getDrawGraphics();
 
 		// quando show foi declarado foi permitido usar cor
-		g.setColor(Color.black); // cor do retangulo
-
-		// cria o retangulo na tela, com suas dimensões
+		// cor do fundo da janela - verde
+		g.setColor(new Color(0,135,13)); 
+		// dimensão janela, com suas dimensões
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 
 		player.render(g);
+		
+		world.render(g);
 
 		// Faz aparecer um quadrado vermelho na tela
 		// g.setColor(Color.red);
