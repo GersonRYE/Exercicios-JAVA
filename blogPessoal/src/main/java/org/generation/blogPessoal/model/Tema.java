@@ -43,7 +43,7 @@ public class Tema {
 	// @JsonIgnoreProperties - para de mostrar infomração quando chegar no atributo
 		// tema na classe postagem
 		// quando encontrar a informação ali dentro de tema, ele apresenta e encerra o resultado
-	@JsonIgnoreProperties("tb_tema")
+	@JsonIgnoreProperties("tema")
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	private List<Postagem> postagem;
 
