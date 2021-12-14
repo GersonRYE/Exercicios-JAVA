@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 	   
 
 @Entity
-@Table(name = "postagem") // que atraves dessa anotação que essa entidade dentro do banco de dados ela vai
+@Table(name = "tb_postagem") // que atraves dessa anotação que essa entidade dentro do banco de dados ela vai
 							// virar uma tabela estou declarando o nome da tabela
 public class Postagem {
 
@@ -62,6 +62,10 @@ public class Postagem {
 	// de apresentar informação, e so apresenta uma vez
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 
 	public long getId() {
 		return id;
@@ -101,6 +105,14 @@ public class Postagem {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	
