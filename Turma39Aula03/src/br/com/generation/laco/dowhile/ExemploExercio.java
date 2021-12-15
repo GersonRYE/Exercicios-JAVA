@@ -12,16 +12,13 @@ public class ExemploExercio {
 
 		while (idade == 0) {
 			if (idade < 0) {
-				idade  = 0;
+				idade = 0;
 				System.out.println("Digite novamente");
-				
+
 			} else {
 				System.out.println("Tudo certo");
 				break;
-				
-
 			}
-
 		}
 	}
 

@@ -21,8 +21,20 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
-	@NotNull
+	
+	/**
+	 * A anotação @Size está definida apenas com o valor min
+	 * porque ao criptografar a senha a mesma terá uma tamanho
+	 * muito maior (em numero de caracteres) do que a senha
+	 * não ciptografada.
+	 * 
+	 * Exemplo: admin123 -> 8 caracteres
+	 * admin123 criptografado -> 60 caracteres
+	 * 
+	 * A anotação @NotBlank indica que o atributo não deve ser
+	 * nulo e/ou conter espaços em branco.
+	 */
+	@NotNull(message = "O atributo Nome é Obrigatório")
 	@Size(min = 2, max = 100)
 	private String nome;
 
@@ -34,9 +46,33 @@ public class Usuario {
 	@Size(min = 5, max = 100)
 	private String senha;
 	
+	private String foto;
+	
+	/**
+	 * CascadeType.REMOVE -> Ele propaga a operação de remoção de um objeto Pai para um 
+	 * objeto Filho. 
+	 * Apenas quando remover a Entidade Usuario, também será removida todas as entidades 
+	 * Postagens associadas. Nas demais operações não haverá a propagação.
+	 * 
+	 * CascadeType.ALL -> Ele propaga todas a operações (Inserir, Listar, Atualizar e Apagar)
+	 * de um objeto Pai para um objeto Filho. 
+	 */
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
+	
+	// Primeiro Método Construtor - Com os Atributos
+	public Usuario(long id, String nome, String usuario, String senha) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+
+	
+	public Usuario() {
+	}
+
 
 	public long getId() {
 		return id;
@@ -69,6 +105,15 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 
 	public List<Postagem> getPostagem() {
 		return postagem;
