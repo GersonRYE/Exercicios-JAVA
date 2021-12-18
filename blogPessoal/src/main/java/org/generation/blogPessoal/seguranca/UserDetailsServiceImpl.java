@@ -2,7 +2,7 @@ package org.generation.blogPessoal.seguranca;
 
 import java.util.Optional;
 
-import org.generation.blogPessoal.model.Usuario;
+import org.generation.blogPessoal.model.UsuarioModel;
 import org.generation.blogPessoal.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		 * Para buscar o usuário no Banco de dados, utilizaremos o método findByUsuario,
 		 * que foi assinado na interface UsuarioRepository
 		 */
-		Optional<Usuario> user = userRepository.findByUsuario(userName);
+		Optional<UsuarioModel> user = userRepository.findByUsuario(userName);
 		
 
 		/**

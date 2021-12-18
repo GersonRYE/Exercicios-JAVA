@@ -53,4 +53,5 @@ public class UsuarioLogin {
 		this.token = token;
 	}
 
+
 }

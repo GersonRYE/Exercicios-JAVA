@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.generation.blogPessoal.model.Postagem;
+import org.generation.blogPessoal.model.PostagemModel;
 import org.generation.blogPessoal.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,39 +28,42 @@ public class PostagemController {
 	private PostagemRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<Postagem>> GetAll() {
+	public ResponseEntity<List<PostagemModel>> GetAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> GetById(@PathVariable long id) {
+	public ResponseEntity<PostagemModel> GetById(@PathVariable long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	//digitando esse caminho no local host e buscando uma palavra especifica dentro do atributo
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
+	public ResponseEntity<List<PostagemModel>> GetByTitulo(@PathVariable String titulo) {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 	
 	//adiciona uma id com dados na tabela
 	@PostMapping
-	public ResponseEntity<Postagem> post(@Valid @RequestBody Postagem postagem) {
+	public ResponseEntity<PostagemModel> post(@Valid @RequestBody PostagemModel postagem) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
 	
 	//atualiza conteudo de algum atributo de uma id dentro da tabela
 	@PutMapping
-	public ResponseEntity<Postagem> put(@Valid @RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
+	public ResponseEntity<PostagemModel> putPostagem(@Valid @RequestBody PostagemModel postagem) {
+		return repository.findById(postagem.getId())
+			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem)))
+			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> repository (@PathVariable long id){
-		return repository.findById(id).map(resp -> {
-			repository.deleteById(id);
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}).orElse(ResponseEntity.notFound().build());
-		
+	public ResponseEntity<?> deletePostagem(@PathVariable long id) {
+		return repository.findById(id)
+			.map(resposta -> {
+				repository.deleteById(id);
+				return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+			})
+			.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 }
 

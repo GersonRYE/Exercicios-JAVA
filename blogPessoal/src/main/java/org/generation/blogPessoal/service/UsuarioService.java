@@ -4,7 +4,7 @@ import java.nio.charset.Charset;
 import java.util.Optional;
 import org.apache.commons.codec.binary.Base64;
 import org.generation.blogPessoal.model.UsuarioLogin;
-import org.generation.blogPessoal.model.Usuario;
+import org.generation.blogPessoal.model.UsuarioModel;
 import org.generation.blogPessoal.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,10 +32,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService {
 
+
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public Optional<Usuario> cadastrarUsuario(Usuario usuario) {
+	public Optional<UsuarioModel> cadastrarUsuario(UsuarioModel usuario) {
 
 		if (usuarioRepository.findByUsuario(usuario.getUsuario()).isPresent())
 			return Optional.empty();
@@ -46,33 +47,36 @@ public class UsuarioService {
 	
 	}
 
-	public Optional<Usuario> atualizarUsuario(Usuario usuario) {
+	public Optional<UsuarioModel> atualizarUsuario(UsuarioModel usuario) {
 
-		
-		if (usuarioRepository.findByUsuario(usuario.getUsuario()).isPresent()) {
+		if (usuarioRepository.findById(usuario.getId()).isPresent()) {
+			
+			Optional<UsuarioModel> buscaUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());
+
+			if (buscaUsuario.isPresent()) {				
+				if (buscaUsuario.get().getId() != usuario.getId())
+					return Optional.empty();
+			}
 			
 			usuario.setSenha(criptografarSenha(usuario.getSenha()));
-			
+
 			return Optional.of(usuarioRepository.save(usuario));
-			
-		}
+		} 
 			
 		return Optional.empty();
-
 	}	
 
 	public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLogin) {
 
-		Optional<Usuario> usuario = usuarioRepository.findByUsuario(usuarioLogin.get().getUsuario());
+		Optional<UsuarioModel> usuario = usuarioRepository.findByUsuario(usuarioLogin.get().getUsuario());
 
 		if (usuario.isPresent()) {
 			if (compararSenhas(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
 
-				usuarioLogin.get().setId(usuario.get().getId());
+				usuarioLogin.get().setId(usuario.get().getId());				
 				usuarioLogin.get().setNome(usuario.get().getNome());
-				//usuarioLogin.get().setFoto(usuario.get().getFoto());
-				usuarioLogin.get().setToken(gerarBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
 				usuarioLogin.get().setSenha(usuario.get().getSenha());
+				usuarioLogin.get().setToken(gerarBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
 
 				return usuarioLogin;
 
@@ -99,10 +103,10 @@ public class UsuarioService {
 
 	}
 
-	private String gerarBasicToken(String usuario, String senha) {
-
-		String token = usuario + ":" + senha;
-		byte[] tokenBase64 = Base64.encodeBase64(token.getBytes(Charset.forName("US-ASCII")));
+	private String gerarBasicToken(String email, String password) {
+		
+		String tokenBase = email + ":" + password;
+		byte[] tokenBase64 = Base64.encodeBase64(tokenBase.getBytes(Charset.forName("US-ASCII")));
 		return "Basic " + new String(tokenBase64);
 
 	}

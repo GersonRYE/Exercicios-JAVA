@@ -3,7 +3,7 @@ package org.generation.blogPessoal.seguranca;
 import java.util.Collection;
 import java.util.List;
 
-import org.generation.blogPessoal.model.Usuario;
+import org.generation.blogPessoal.model.UsuarioModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -41,7 +41,7 @@ public class UserDetailsImpl implements UserDetails {
 	 * recupera os dados necessários através dos respectivos métodos Get
 	 */
 
-	public UserDetailsImpl(Usuario user) {
+	public UserDetailsImpl(UsuarioModel user) {
 		this.userName = user.getUsuario();
 		this.password = user.getSenha();
 	}
@@ -62,7 +62,7 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 	
