@@ -2,20 +2,21 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\gerso\Desktop\cadastroCestaBasica"/>
+			<item value="C:\Users\gerso\Desktop\Ex_PortoSeguro_JAVA\FamiliaDHPortoSeguro"/>
+			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02\Backend\PoliteLearning"/>
+			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02\Backend\deploy_projetointegrador"/>
+			<item value="C:\Users\gerso\Desktop\deploy_blogPessoal"/>
 			<item value="C:\Users\gerso\Desktop\Loja-de-Games-1\Loja_de_Games"/>
 			<item value="C:\Users\gerso\Desktop\Loja-de-Games\Loja_de_Games"/>
 			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02"/>
 			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02 - Copia\Backend\PoliteLearning2"/>
 			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02 - Copia\Backend\PoliteLearning"/>
-			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02\Backend\PoliteLearning"/>
 			<item value="C:\workspace-eclipse\workspace\db_generation_farmacia"/>
 			<item value="C:\workspace-eclipse\workspace\db_generation"/>
 			<item value="C:\Users\gerso\Desktop\Loja-de-Games-1"/>
 			<item value="C:\Users\gerso\Desktop\Loja-de-Games-1\Loja-de-Games-1\Loja_de_Games"/>
 			<item value="C:\workspace-eclipse\workspace\blogPessoal"/>
-			<item value="C:\workspace-eclipse\workspace\hello"/>
-			<item value="C:\Users\gerso\Desktop\hello\hello"/>
-			<item value="C:\Users\gerso\Desktop\hello"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -29,5 +30,29 @@
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenCheckoutLocationPage">
+		<list key="scmUrl">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
 	</section>
 </section>
