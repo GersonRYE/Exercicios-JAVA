@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\gerso\Desktop\course"/>
 			<item value="C:\Users\gerso\Desktop\cadastroCestaBasica"/>
 			<item value="C:\Users\gerso\Desktop\Ex_PortoSeguro_JAVA\FamiliaDHPortoSeguro"/>
 			<item value="C:\Users\gerso\Desktop\Projeto-Integrador-Grupo-02\Backend\PoliteLearning"/>
@@ -16,7 +17,6 @@
 			<item value="C:\workspace-eclipse\workspace\db_generation"/>
 			<item value="C:\Users\gerso\Desktop\Loja-de-Games-1"/>
 			<item value="C:\Users\gerso\Desktop\Loja-de-Games-1\Loja-de-Games-1\Loja_de_Games"/>
-			<item value="C:\workspace-eclipse\workspace\blogPessoal"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
