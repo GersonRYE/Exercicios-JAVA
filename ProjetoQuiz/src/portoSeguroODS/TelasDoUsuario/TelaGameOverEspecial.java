@@ -16,6 +16,10 @@ import portoSeguroODS.QuizMatematica;
 
 public class TelaGameOverEspecial extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -68,7 +72,7 @@ public class TelaGameOverEspecial extends JFrame {
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProejtoQuiz\\img\\fimEspecial.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProjetoQuiz\\img\\fimEspecial.png"));
 		lblNewLabel.setBounds(0, 0, 480, 261);
 		contentPane.add(lblNewLabel);
 	}

@@ -12,6 +12,10 @@ import javax.swing.JPanel;
 
 public class Canvas extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	BufferedImage imagemFundo;
 
 	/**
@@ -21,7 +25,7 @@ public class Canvas extends JPanel {
 	public Canvas() {
 
 		try {
-			imagemFundo = ImageIO.read(new File("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProejtoQuiz\\img\\logo.png"));
+			imagemFundo = ImageIO.read(new File("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProjetoQuiz\\img\\logo.png"));
 		} catch (IOException ex) {
 			Logger.getLogger(Canvas.class.getName()).log(Level.SEVERE, null, ex);
 		}

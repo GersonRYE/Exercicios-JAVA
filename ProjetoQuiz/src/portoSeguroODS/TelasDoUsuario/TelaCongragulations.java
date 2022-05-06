@@ -16,6 +16,10 @@ import portoSeguroODS.QuizMatematica;
 
 public class TelaCongragulations extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
 	/**
@@ -51,7 +55,7 @@ public class TelaCongragulations extends JFrame {
 		contentPane.add(pontos);
 		
 		JLabel fundoWin = new JLabel("New label");
-		fundoWin.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProejtoQuiz\\img\\congratulations.gif"));
+		fundoWin.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProjetoQuiz\\img\\congratulations.gif"));
 		fundoWin.setBounds(0, 0, 634, 280);
 		contentPane.add(fundoWin);
 	}

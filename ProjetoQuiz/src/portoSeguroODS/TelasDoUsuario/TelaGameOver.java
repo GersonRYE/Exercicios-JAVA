@@ -13,12 +13,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import portoSeguroODS.Principal;
 import portoSeguroODS.QuizMatematica;
 
 public class TelaGameOver extends JFrame {
 
-	private Principal principal;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+//	private Principal principal;
 	private JPanel contentPane;
 
 	/**
@@ -81,7 +84,7 @@ public class TelaGameOver extends JFrame {
 
 		JLabel fundoGameOver = new JLabel();
 		fundoGameOver.setBounds(0, -10, 480, 270);
-		fundoGameOver.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProejtoQuiz\\img\\gameOver.gif"));
+		fundoGameOver.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProjetoQuiz\\img\\gameOver.gif"));
 		contentPane.add(fundoGameOver);
 		FundoGameOver.setLayout(new BorderLayout(0, 0));
 	}

@@ -18,14 +18,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class TelaLinkBasico extends JFrame {
+public class TelaLinkAvancado extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// private JLabel hyperlink = new JLabel(text);
 	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
 	 */
-	public TelaLinkBasico() throws HeadlessException {
+	public TelaLinkAvancado() throws HeadlessException {
 		super();
 		setTitle("LinkDemo");
 
@@ -41,8 +45,8 @@ public class TelaLinkBasico extends JFrame {
 		setLocationRelativeTo(null);
 
 		// texto da label = link1
-		String text1 = "Video sobre Soma e Subtração";
-		String text2 = "Conteudo para leitura sobre operações basicas";
+		String text1 = "Video sobre potenciação e raiz.";
+		String text2 = "Conteudo para leitura sobre operações avançadas.";
 
 		// Objeto links criado com text armazenado
 		JLabel link1 = new JLabel(text1);
@@ -91,8 +95,7 @@ public class TelaLinkBasico extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().browse(
-							new URI("https://www.youtube.com/watch?v=AUzyuZdg68Y&ab_channel=ProfessoraAlineSantana"));
+					Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=P1HdAS_nBHE"));
 				} catch (IOException | URISyntaxException e1) {
 					e1.printStackTrace();
 				}
@@ -117,8 +120,7 @@ public class TelaLinkBasico extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI(
-							"https://trilhante.com.br/curso/operacoes-basicas/aula/operacoes-basicas-adicao-subtracao-multiplicacao-e-divisao#:~:text=A%20ADI%C3%87%C3%83O%20pode%20ser%20entendida,somado%20com%20um%20n%C3%BAmero%20POSITIVO."));
+					Desktop.getDesktop().browse(new URI("https://www.todamateria.com.br/potenciacao-e-radiciacao/"));
 				} catch (IOException | URISyntaxException e1) {
 					e1.printStackTrace();
 				}
