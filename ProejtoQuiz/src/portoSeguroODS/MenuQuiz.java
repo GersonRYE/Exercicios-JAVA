@@ -4,14 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import portoSeguroODS.Avancado.Avancado;
-import portoSeguroODS.Avancado.Exponenciacao;
-import portoSeguroODS.Avancado.Raiz;
-import portoSeguroODS.Basico.Adicao;
 import portoSeguroODS.Basico.Basico;
-import portoSeguroODS.Basico.Subtracao;
-import portoSeguroODS.Intermediario.Divisao;
 import portoSeguroODS.Intermediario.Intermediario;
-import portoSeguroODS.Intermediario.Multiplicacao;
 
 public class MenuQuiz {
 
