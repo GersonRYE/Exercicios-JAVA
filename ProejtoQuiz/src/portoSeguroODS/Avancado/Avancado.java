@@ -30,14 +30,14 @@ public class Avancado extends QuizMatematica implements PerguntaQuiz {
 			switch ((int) potenciaOuRaiz) {
 			// Opção 0 - Perguntas sobre exponenciação
 			case 0:
-				// Criando objeto tipo exponencição
+				// Criando objeto exponencição
 				this.tipoDeCalculo = new Exponenciacao();
 				// objeto chama o método calcularQuiz
 				tipoDeCalculo.calcularQuiz();
 				break;
 			// Opção 1 - Perguntas sobre raiz
 			case 1:
-				// Criando objeto tipo raiz
+				// Criando objeto raiz
 				this.tipoDeCalculo = new Raiz();
 				// objeto chama o método calcular quiz
 				tipoDeCalculo.calcularQuiz();

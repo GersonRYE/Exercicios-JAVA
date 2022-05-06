@@ -28,14 +28,14 @@ public class Basico extends QuizMatematica implements PerguntaQuiz {
 			switch ((int) somaOuSubtracao) {
 			// Opção 0 - Perguntas sobre Adição
 			case 0:
-				// Criando objeto tipo Adição
+				// Criando objeto Adição
 				this.tipoDeCalculo = new Adicao();
 				// objeto chama o método calcularQuiz
 				tipoDeCalculo.calcularQuiz();
 				break;
-			// Opção 1 - Perguntas sobre SubtraçãoF
+			// Opção 1 - Perguntas sobre Subtração
 			case 1:
-				// Criando objeto tipo Subtração
+				// Criando objeto Subtração
 				this.tipoDeCalculo = new Subtracao();
 				// objeto chama o método calcular quiz
 				tipoDeCalculo.calcularQuiz();

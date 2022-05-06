@@ -38,7 +38,7 @@ public class Adicao extends QuizMatematica implements Calculo {
 		} else {
 			System.out.println("\nResposta incorreta!" + "\nA resposta é: " + getRespostaCorreta());
 			System.out.println("\nVocê perdeu uma vida!\n");
-			// Método que remove vida
+			// Método que remove vida -1
 			removeVidas();
 		}
 	}
@@ -57,7 +57,7 @@ public class Adicao extends QuizMatematica implements Calculo {
 
 		scanner.nextLine();
 
-		// Gera o resultado do sistema referenta a soma
+		// Gera o resultado do sistema referenta a soma da calculadora
 		setRespostaCorretaCalculadora(getcA().add(getcB()));
 
 		System.out.println("\n" + getcA() + " + " + getcB() + " = " + getRespostaCorretaCalculadora());

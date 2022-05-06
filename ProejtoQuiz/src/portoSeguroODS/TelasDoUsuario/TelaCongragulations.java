@@ -51,7 +51,7 @@ public class TelaCongragulations extends JFrame {
 		contentPane.add(pontos);
 		
 		JLabel fundoWin = new JLabel("New label");
-		fundoWin.setIcon(new ImageIcon("C:\\workspace-eclipse\\workspace\\ProejtoQuiz\\img\\congratulations.gif"));
+		fundoWin.setIcon(new ImageIcon("C:\\Users\\home\\Desktop\\Exercicios-JAVA\\ProejtoQuiz\\img\\congratulations.gif"));
 		fundoWin.setBounds(0, 0, 634, 280);
 		contentPane.add(fundoWin);
 	}

@@ -28,7 +28,9 @@ public class Divisao extends QuizMatematica implements Calculo {
 	// Polimorfismo - Sobrescreve o método da interface Calculo
 	@Override
 	public void checarRespostaQuiz() {
+		// Entrada de valor inserido pelo usuario
 		setRespostaDoUsuario(0);
+		// Condição de comparação com a resposta do usuário e do sistema
 		if (getRespostaCorreta() == getRespostaDoUsuario()) {
 			System.out.println("\nReposta correta!");
 			// Método de pontuação recebe +1
@@ -38,7 +40,7 @@ public class Divisao extends QuizMatematica implements Calculo {
 		} else {
 			System.out.println("\nResposta incorreta!" + "\nA resposta é: " + getRespostaCorreta());
 			System.out.println("\nVocê perdeu uma vida!\n");
-			// Método que remove vida
+			// Método que remove vida -1
 			removeVidas();
 		}
 
@@ -56,13 +58,13 @@ public class Divisao extends QuizMatematica implements Calculo {
 		System.out.println("\nDigite o valor de b: ");
 		setcB(cB);
 		while (getcB().doubleValue() == 0) {
-			System.out.println("\nO valor de b nÃ£o pode ser zero!");
+			System.out.println("\nO valor de b não pode ser zero!");
 			setcB(cB);
 		}
 
 		scanner.nextLine();
 
-		// Gera a resposta com duas casas decimais do sistema arredondando o valor para cima
+		// Gera o resultado do sistema referente a divisão com duas casas decimais arredondando o valor para cima da calculadora
 		setRespostaCorretaCalculadora(getcA().divide(getcB(), 2, RoundingMode.HALF_UP));
 
 		if (getcB().doubleValue() < 0) {

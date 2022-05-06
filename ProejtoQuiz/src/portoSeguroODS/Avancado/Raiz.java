@@ -62,7 +62,7 @@ public class Raiz extends QuizMatematica implements Calculo {
 
 		// Objeto que limita a quantidade de casas decimais de um bigdecimal
 		MathContext mc = new MathContext(6);
-		// Gera o resultado do sistema referente a raiz com limitador de casas decimais
+		// Gera o resultado do sistema referente a raiz com limitador de casas decimais da calculadora
 		setRespostaCorretaCalculadora(getcA().sqrt(mc));
 
 		System.out.println("\nRaiz quadrada de " + getcA() + " = " + getRespostaCorretaCalculadora());

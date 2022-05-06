@@ -63,7 +63,7 @@ public class Subtracao extends QuizMatematica implements Calculo {
 
 		scanner.nextLine();
 
-		// Gera a resposta do sistema
+		// Gera a resposta do sistema referente a subtração da calculadora
 		setRespostaCorretaCalculadora(getcA().subtract(getcB()));
 
 		if (getcB().doubleValue() < 0) {

@@ -62,6 +62,7 @@ public class Exponenciacao extends QuizMatematica implements Calculo {
 
 		scanner.nextLine();
 
+		// Gera a resposta do sistema referente a exponenciação da calculadora
 		setRespostaCorretaCalculadora(getcA().pow(getcB().intValue()));
 
 		// Tratamento transforma o valor de getcB do tipo bigDecimal em double e compara

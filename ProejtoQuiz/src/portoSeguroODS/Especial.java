@@ -43,8 +43,8 @@ public class Especial extends QuizMatematica implements PerguntaQuiz, Calculo {
 			System.out.println(getA() + "² + (" + getA() + " - " + getB() + ") x (" + getC() + "+" + getD()
 					+ ") + raiz quadrada de 4?");
 
+			// gera a resposta do sistema
 			setRespostaCorreta((int) Math.pow(getA(), 2) + (getA() - getB()) * (getC() + getD()) + (int) Math.sqrt(4));
-			// System.out.println(getRespostaCorreta());
 
 			// Método para avaliar a resposta do usuário e do sistema
 			checarRespostaQuiz();
@@ -54,8 +54,8 @@ public class Especial extends QuizMatematica implements PerguntaQuiz, Calculo {
 			System.out.println(getA() + "² + (" + getB() + " - " + getA() + ") x (" + getC() + "+" + getD()
 					+ ") + raiz quadrada de 9?");
 
+			// Gera a resposta do sistema
 			setRespostaCorreta((int) Math.pow(getA(), 2) + (getB() - getA()) * (getC() + getD()) + (int) Math.sqrt(9));
-			// System.out.println(getRespostaCorreta());
 
 			// Método para avaliar a resposta do usuário e do sistema
 			checarRespostaQuiz();
