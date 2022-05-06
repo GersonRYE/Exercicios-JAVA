@@ -1,7 +1,5 @@
 package portoSeguroODS.Intermediario;
 
-import java.math.RoundingMode;
-
 import portoSeguroODS.Calculo;
 import portoSeguroODS.QuizMatematica;
 
